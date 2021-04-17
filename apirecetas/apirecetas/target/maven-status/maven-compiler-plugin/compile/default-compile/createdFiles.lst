@@ -1,0 +1,5 @@
+com\goodiet\apirecetas\web\error\CustomError.class
+com\goodiet\apirecetas\ApirecetasApplication.class
+com\goodiet\apirecetas\web\RecetasController.class
+com\goodiet\apirecetas\service\RecetasService.class
+com\goodiet\apirecetas\domain\Receta.class
