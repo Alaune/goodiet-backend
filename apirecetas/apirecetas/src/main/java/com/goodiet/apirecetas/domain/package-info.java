@@ -1,1 +1,0 @@
-package com.goodiet.apirecetas.domain;
