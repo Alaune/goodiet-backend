@@ -37,6 +37,15 @@ public class CategoryService {
 	}
 	
 	/**
+	 * Devuelve la categoría cuyo nombre es el pasado como parámetro
+	 * @param id
+	 * @return
+	 */
+	public Category findByName(String name) {
+		return categoryRepository.findByName(name);
+	}
+	
+	/**
 	 * Creación y guardado de Category
 	 * 
 	 * @param category
