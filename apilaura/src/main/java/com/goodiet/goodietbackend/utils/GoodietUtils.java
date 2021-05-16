@@ -4,6 +4,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.goodiet.goodietbackend.domain.Category;
+import com.goodiet.goodietbackend.domain.Ingredient;
+import com.goodiet.goodietbackend.domain.Measure;
 import com.goodiet.goodietbackend.domain.Recipe;
 
 /**
@@ -41,6 +43,38 @@ public class GoodietUtils {
 		boolean isValid = true;
 		
 		if (!StringUtils.hasText(category.getName())) {
+			isValid = false;
+		}
+		
+		return isValid;
+	}
+	
+	/**
+	 * Método de comprobación de la validez de un ingrediente
+	 * 
+	 * @param ingredient Ingrediente a validar
+	 * @return isValid
+	 */
+	public boolean isValidIngredient(Ingredient ingredient) {
+		boolean isValid = true;
+		
+		if (!StringUtils.hasText(ingredient.getName())) {
+			isValid = false;
+		}
+		
+		return isValid;
+	}
+	
+	/**
+	 * Método de comprobación de la validez de una medida
+	 * 
+	 * @param measure Medida  a validar
+	 * @return isValid
+	 */
+	public boolean isValidMeasure(Measure measure) {
+		boolean isValid = true;
+		
+		if (!StringUtils.hasText(measure.getName())) {
 			isValid = false;
 		}
 		
