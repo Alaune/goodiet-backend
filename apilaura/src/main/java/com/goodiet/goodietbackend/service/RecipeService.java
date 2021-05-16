@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.goodiet.goodietbackend.domain.Category;
 import com.goodiet.goodietbackend.domain.Ingredient;
+import com.goodiet.goodietbackend.domain.IngredientRecipe;
 import com.goodiet.goodietbackend.domain.Recipe;
 import com.goodiet.goodietbackend.repository.RecipeRepository;
 import com.goodiet.goodietbackend.utils.GoodietUtils;
@@ -26,6 +27,9 @@ public class RecipeService {
 	
 	@Autowired
 	private IngredientService ingredientService;
+	
+	@Autowired
+	private IngredientRecipeService ingredientRecipeService;
 	
 	/**
 	 * Devuelve todas las recetas
@@ -96,7 +100,14 @@ public class RecipeService {
 	 */
 	public List<Recipe> findAllByIngredient(String nombreIngrediente) {
 		Ingredient ingrediente = ingredientService.findByName(nombreIngrediente);
-		return recipeRepository.findAllByIngredient(ingrediente);
+		List<IngredientRecipe> ingredientRecipe = ingredientRecipeService.findAllByIngredient(ingrediente);
+		List<Recipe> listaRecetas = new ArrayList<>();
+		ingredientRecipe.forEach(x -> {
+			Recipe receta = x.getRecipe();
+			listaRecetas.add(receta);
+		});
+		
+		return listaRecetas;
 	}
 	
 	/**
