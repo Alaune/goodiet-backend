@@ -57,6 +57,10 @@ public class RecipeService {
 	public Recipe saveRecipe(Recipe recipe) {
 		if (goodietUtils.isValidRecipe(recipe)) {
 			recipeRepository.save(recipe);
+			List<IngredientRecipe> ingredients = recipe.getIngredients();
+			for (IngredientRecipe ingredientRecipe : ingredients) {
+				ingredientRecipeService.saveIngredientRecipe(ingredientRecipe);
+			}
 		}
 		
 		return recipe;

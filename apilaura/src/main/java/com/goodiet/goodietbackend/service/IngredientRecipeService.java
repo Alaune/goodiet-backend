@@ -31,4 +31,8 @@ public class IngredientRecipeService {
 	public List<IngredientRecipe> findAllByRecipe(Recipe receta) {
 		return ingredientRecipeRepository.findAllByRecipe(receta);
 	}
+	
+	public void saveIngredientRecipe(IngredientRecipe ingredientRecipe) {
+		ingredientRecipeRepository.save(ingredientRecipe);
+	}
 }

@@ -2,23 +2,24 @@ package com.goodiet.goodietbackend.domain.idclass;
 
 import java.io.Serializable;
 
-import com.goodiet.goodietbackend.domain.Ingredient;
-import com.goodiet.goodietbackend.domain.Recipe;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 import lombok.Data;
 
 @SuppressWarnings("serial")
 @Data
+@Embeddable
 public class IngredientRecipeIdClass implements Serializable {
 	
-	private Ingredient ingredient;
+	@Column(name = "recipe_id")
+	private Long recipeId;
 	
-	private Recipe recipe;
+	@Column(name = "ingredient_id")
+	private Long ingredientId;
 
 	public IngredientRecipeIdClass() {
 		super();
-	}
-	
-	
+	}	
 
 }
